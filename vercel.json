@@ -1,0 +1,31 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/Bitume%20225",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/Bitume%20225.html",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/bitume-225",
+      "destination": "/index.html"
+    }
+  ]
+}
