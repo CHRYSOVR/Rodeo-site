@@ -16,10 +16,6 @@
   ],
   "rewrites": [
     {
-      "source": "/",
-      "destination": "/Bitume%20225.html"
-    },
-    {
       "source": "/bitume-225",
       "destination": "/Bitume%20225.html"
     }
