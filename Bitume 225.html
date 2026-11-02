@@ -228,6 +228,50 @@
       margin-bottom: 0;
     }
 
+    .player-profile-placeholder {
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 100%;
+      font-weight: 700;
+    }
+
+    .player-profile-placeholder span {
+      display: grid;
+      place-items: center;
+      width: 96px;
+      height: 96px;
+      border: 2px solid var(--border-hover);
+      border-radius: 50%;
+      color: var(--accent-ball);
+      font-family: var(--font-heading);
+      font-size: 2rem;
+    }
+
+    .player-profile-sheet {
+      background: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .profile-rating-bar {
+      height: 6px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .profile-rating-bar span {
+      display: block;
+      height: 100%;
+      background: var(--accent-ball);
+      border-radius: inherit;
+    }
+
     /* Terrain vectoriel épuré & net */
     .court-box {
       background: #131722;
@@ -339,7 +383,7 @@
         <a href="#terrain" class="nav-btn-link">Le Terrain</a>
         <a href="#roster" class="nav-btn-link">Les Joueurs</a>
         <a href="#matchs" class="nav-btn-link">Matchs</a>
-        <a href="#galerie" class="nav-btn-link">Photos (14)</a>
+        <a href="#galerie" class="nav-btn-link">Photos (15)</a>
         <a href="#defier" class="btn btn-light rounded-pill px-4 fw-bold ms-2">
           Nous Défier
         </a>
@@ -358,7 +402,7 @@
         <a href="#terrain" class="nav-btn-link">Le Terrain</a>
         <a href="#roster" class="nav-btn-link">Les Joueurs</a>
         <a href="#matchs" class="nav-btn-link">Matchs</a>
-        <a href="#galerie" class="nav-btn-link">Photos (14)</a>
+        <a href="#galerie" class="nav-btn-link">Photos (15)</a>
         <a href="#defier" class="btn btn-light rounded-pill fw-bold mt-2">Nous Défier</a>
       </div>
     </div>
@@ -376,7 +420,7 @@
           <!-- Ligne d'avatars de l'équipe -->
           <div class="d-flex align-items-center gap-2 mb-3">
             <div class="d-inline-flex" style="padding-left: 8px;">
-              <img src="images/Chrys.jpeg" alt="Chrys OVER" class="rounded-circle border border-2 border-dark" style="width: 38px; height: 38px; object-fit: cover; margin-left: -8px;">
+              <img src="images/Chrys.jpeg" alt="Chrys Fabrice" class="rounded-circle border border-2 border-dark" style="width: 38px; height: 38px; object-fit: cover; margin-left: -8px;">
               <img src="images/Bathie.jpeg" alt="Bathié" class="rounded-circle border border-2 border-dark" style="width: 38px; height: 38px; object-fit: cover; margin-left: -8px;">
               <img src="images/Samuel.jpeg" alt="Samuel" class="rounded-circle border border-2 border-dark" style="width: 38px; height: 38px; object-fit: cover; margin-left: -8px;">
               <img src="images/Alex.jpeg" alt="Alex" class="rounded-circle border border-2 border-dark" style="width: 38px; height: 38px; object-fit: cover; margin-left: -8px;">
@@ -594,11 +638,11 @@
       
       <div class="d-flex flex-wrap justify-content-between align-items-end mb-4 gap-2">
         <div>
-          <span class="text-warning text-uppercase fw-bold small">Effectif Officiel</span>
+          <span class="text-warning text-uppercase fw-bold small">Joueurs & profils</span>
           <h2 class="fs-1 fw-bold mt-1">Les Joueurs de l'Équipe</h2>
         </div>
         <div class="text-white small">
-          Total : <strong class="text-warning" id="rosterCount">19</strong> joueurs inscrits
+          Fiches affichées : <strong class="text-warning" id="rosterCount">26</strong>
         </div>
       </div>
 
@@ -615,7 +659,7 @@
 
         <div class="col-md-7">
           <div class="d-flex flex-wrap gap-1" id="filterChips">
-            <button class="btn btn-light btn-sm rounded-pill px-3 fw-bold active" data-pos="Tous" onclick="setPosteFilter('Tous')">Tous (19)</button>
+            <button class="btn btn-light btn-sm rounded-pill px-3 fw-bold active" data-pos="Tous" onclick="setPosteFilter('Tous')">Tous (26)</button>
             <button class="btn btn-outline-secondary btn-sm rounded-pill px-3 text-white" data-pos="Meneur" onclick="setPosteFilter('Meneur')">Meneurs</button>
             <button class="btn btn-outline-secondary btn-sm rounded-pill px-3 text-white" data-pos="Arrière" onclick="setPosteFilter('Arrière')">Arrières</button>
             <button class="btn btn-outline-secondary btn-sm rounded-pill px-3 text-white" data-pos="Ailier" onclick="setPosteFilter('Ailier')">Ailiers</button>
@@ -734,7 +778,7 @@
       
       <div class="mb-4">
         <span class="text-warning text-uppercase fw-bold small">Portraits Officiels</span>
-        <h2 class="fs-1 fw-bold mt-1">Galerie Photos (14 Ballers)</h2>
+        <h2 class="fs-1 fw-bold mt-1">Galerie Photos (<span id="galleryPhotoCount">15</span>)</h2>
       </div>
 
       <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 g-3" id="galleryGrid">
@@ -799,7 +843,7 @@
        MODAL FICHE JOUEUR
        ========================================================== -->
   <div class="modal fade" id="playerModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content modal-content-clean">
         <div class="modal-header border-secondary border-opacity-25 py-3">
           <h5 class="modal-title fs-4 fw-bold text-white" id="modalName">Nom du Joueur</h5>
@@ -815,7 +859,9 @@
             </div>
             <div class="col-sm-7">
               <span class="badge bg-secondary mb-2 px-3 py-2 fw-bold" id="modalPosBadge">Meneur</span>
+              <p class="small text-muted mb-2" id="modalPlayerDetails"></p>
               <p class="text-white small mb-3" id="modalBio" style="line-height: 1.6;">Note sur le joueur...</p>
+              <div id="modalSurveyProfile"></div>
               <div class="p-3 rounded-3 bg-black border border-secondary border-opacity-25 small text-muted">
                 <div><strong class="text-white">Terrain :</strong> Niangon Sud</div>
                 <div><strong class="text-white">Format :</strong> 4 contre 4</div>
@@ -834,27 +880,51 @@
        JAVASCRIPT
        ========================================================== -->
   <script>
-    /* BASE DE DONNÉES DES 19 JOUEURS (14 AVEC VRAIES PHOTOS) */
+    /* Effectif affiché sur le site. Les profils sans numéro restent sans numéro. */
     const JOUEURS = [
-      { n: 7,  nom: "Bathié",          poste: "Meneur",      note: "Bonne vision de jeu, tireur régulier à 3 points et passes rapides.", img: "images/Bathie.jpeg" },
-      { n: 23, nom: "Samuel",          poste: "Arrière",      note: "Bonne vision de jeu, bon tireur et sang-froid dans les fins de match.", img: "images/Samuel.jpeg" },
-      { n: 11, nom: "Alex",            poste: "Meneur",      note: "Vitesse d'exécution, organise le jeu et distribue le ballon.", img: "images/Alex.jpeg" },
-      { n: 9,  nom: "Emmanuel",        poste: "Meneur",      note: "Meilleur passeur all-time de l'équipe, distribue avec précision.", img: "images/emmanuel.jpeg" },
-      { n: 14, nom: "Isaac",           poste: "Arrière",     note: "Pénètre et finit au cercle avec aisance, très bon tireur.", img: "images/Isaac.jpeg" },
-      { n: 8,  nom: "Djoman",          poste: "Arrière",     note: "Monsieur le nonchalant, calme, bonne finition et tir fiable.", img: "images/Djoman.jpeg" },
-      { n: 13, nom: "Hira",            poste: "Arrière",     note: "Bonne sélection de tirs, tir à mi-distance efficace et défense propre.", img: "images/Hira.jpeg" },
-      { n: 10, nom: "Epiphane",        poste: "Arrière",     note: "Tireur régulier, persévérant, bon placement en attaque.", img: "images/Epiphane.jpeg" },
-      { n: 1,  nom: "Chrys OVER",      poste: "Ailier fort",      note: "Capitaine, joueur complet, relance rapide et percussion.", img: "images/Chrys.jpeg" },
-      { n: 5,  nom: "Bradley (Brandon)",poste: "Arrière",    note: "Joueur polyvalent, grosse énergie au cercle et bon tireur.", img: "images/Bradley.jpeg" },
-      { n: 24, nom: "Ablo (Aboubakar)",poste: "Ailier",      note: "Puissant dans les pénétrations vers le panier, gros impact physique.", img: "images/Ablo.jpeg" },
-      { n: 32, nom: "Jacky",           poste: "Ailier",      note: "Travaille dans la raquette, pose des écrans solides pour libérer le jeu.", img: "images/Jacky.jpeg" },
-      { n: 50, nom: "Pépé",            poste: "Ailier fort", note: "Polyvalent, finition au cercle et solide présence défensive.", img: "images/pepe.jpeg" },
-      { n: 3,  nom: "Kuyo",            poste: "Ailier fort", note: "Bonne défense sur le porteur de balle et présence aux rebonds.", img: "images/Kuyo.jpeg" },
-      { n: 4,  nom: "Moussa",          poste: "Ailier fort", note: "Énergie sur le terrain, travail au rebond et tir à mi-distance.", img: "" },
-      { n: 21, nom: "Ariel",           poste: "Meneur",      note: "Bon shooteur en bout de terrain, calme dans les moments importants.", img: "" },
-      { n: 17, nom: "Caliss",          poste: "Meneur",      note: "Bonne défense tout terrain, organise la relance.", img: "" },
-      { n: 44, nom: "Kyky de Bondy",   poste: "Pivot",       note: "Joue dos au panier et protège la raquette sous le cercle.", img: "" },
-      { n: 12, nom: "Kyliane",         poste: "Pivot",       note: "Le plus grand de l'équipe, contre tout ce qui passe dans la raquette.", img: "" }
+  { n: 7,  nom: "Olympe Bathié", nickname: "olympe", poste: "Meneur", age: "", height: "", note: "Bonne vision de jeu, tireur régulier à 3 points et passes rapides.", img: "images/Bathie.jpeg" },
+  { n: 23, profil: "kombucha-ou-samuel", nom: "Koussa Samuel", nickname: "Kombucha ou Samuel", poste: "Meneur", age: "25ans", height: "175cm", note: "Polyvalence, défense individuelle et concentration dans le jeu collectif.", img: "images/Samuel.jpeg" },
+  { n: 11, profil: "la-g-chette", nom: "Alexking Koffi", nickname: "La gâchette", poste: "Meneur", age: "20", height: "190cm", note: "Vitesse d'exécution, organise le jeu et distribue le ballon.", img: "images/Alex.jpeg" },
+  { n: 9,  profil: "commandant", nom: "Emmanuel", nickname: "Commandant", poste: "Meneur", age: "18 ans", height: "1m93", note: "Meilleur passeur all-time de l'équipe, distribue avec précision.", img: "" },
+  { n: 14, nom: "Isaac", nickname: "Isaac", poste: "Arrière", age: "", height: "", note: "Pénètre et finit au cercle avec aisance, très bon tireur.", img: "images/Isaac.jpeg" },
+  { n: 8,  nom: "Djoman", nickname: "Djoman", poste: "Arrière", age: "21", height: "1m85", note: "Monsieur le nonchalant, calme, bonne finition et tir fiable.", img: "images/Djoman.jpeg" },
+  
+  { n: 10, nom: "Nekpehi Djédjé Gbamnan Prince Jean Epiphane", nickname: "Epiphane", poste: "Arrière", age: "21", height: "1m78", note: "Tireur régulier, persévérant, bon placement en attaque.", img: "images/Epiphane.jpeg" },
+  { n: 34,  profil: "over", nom: "Chrys Fabrice", nickname: "Over", poste: "Ailier fort", age: "23", height: "1m89", note: "Outsider, joueur complet, relance rapide et percussion.", img: "images/Chrys.jpeg" },
+  { n: 5,  profil: "Bradley", nom: "Bradley", nickname: "", poste: "", age: "", height: "", note: "Joueur polyvalent, grosse énergie au cercle et bon tireur.", img: "images/Bradley.jpeg" },
+  { n: 24, nom: "Ablo", nickname: "Brandon Harthley", poste: "Ailier", age: "", height: "", note: "Puissant dans les pénétrations vers le panier, gros impact physique.", img: "images/Ablo.jpeg" },
+  { n: 32, profil: "jacky", nom: "Jacquis-Arnold", nickname: "JACKY", poste: "Ailier", age: "24", height: "1m85", note: "Travaille dans la raquette, pose des écrans solides pour libérer le jeu.", img: "images/Jacky.jpeg" },
+  { n: 50, profil: "pepe", nom: "Touré junior", nickname: "Pépé", poste: "Ailier fort", age: "21 ans", height: "1m85", note: "Polyvalent, finition au cercle et solide présence défensive.", img: "images/pepe.jpeg" },
+  { n: 3,  nom: "Kuyo", nickname: "Kuyo", poste: "Meneur", age: "", height: "", note: "Bonne défense sur le porteur de balle et présence aux rebonds.", img: "images/Kuyo.jpeg" },
+  // Joueurs sans photo (générés avec maillot SVG)
+  { n: 4,  nom: "Moussa", nickname: "Moussa", poste: "Ailier fort", age: "", height: "", note: "Énergie sur le terrain, travail au rebond et tir à mi-distance.", img: "" },
+  { n: 21, nom: "Ariel", nickname: "Ariel", poste: "Meneur", age: "", height: "", note: "Bon shooteur en bout de terrain, calme dans les moments importants.", img: "" },
+  { n: 17, nom: "Caliss", nickname: "Caliss", poste: "Meneur", age: "", height: "", note: "Bonne défense tout terrain, organise la relance.", img: "" },
+  { n: 44, nom: "Kyky de Bondy", nickname: "Kyky", poste: "Pivot", age: "", height: "", note: "Joue dos au panier et protège la raquette sous le cercle.", img: "" },
+  { n: 12, profil: "kyliane", nom: "GBAYORO kyliane", nickname: "Kyliane", poste: "Pivot", age: "18 ans", height: "2m1", note: "Le plus grand de l'équipe, contre tout ce qui passe dans la raquette.", img: "" },
+   { n:10, profil: "sammy", nom: "Kla hira sammy", nickname: "Sammy", poste: "Arrière", age: "17 ans", height: "1m87", note: "Profil complété à partir des réponses déclarées au questionnaire.", img: "images/Hira.jpeg" },
+  { n:9, profil: "gary", nom: "AMBOF", nickname: "GARY", poste: "Arrière", age: "17 ans", height: "1m76", note: "Profil complété à partir des réponses déclarées au questionnaire.", img: "" },
+  { n:0, profil: "valea-viniry", nom: "Valea viniry", nickname: "Valea viniry", poste: "Arrière", age: "23", height: "184cm", note: "Profil complété à partir des réponses déclarées au questionnaire.", img: "" },
+  { n:6,  profil: "michel", nom: "Loba Michel", nickname: "Michel", poste: "Arrière", age: "19", height: "1m89", note: "Profil complété à partir des réponses déclarées au questionnaire.", img: "images/Michel loba.jpeg" },
+  { n:2, profil: "hans", nom: "Hans jehovano", nickname: "Hans", poste: "Arrière", age: "17 ans", height: "180cm", note: "Profil complété à partir des réponses déclarées au questionnaire.", img: "" },
+  { n:23, profil: "lebron-james", nom: "Jean henoc touré", nickname: "Lebron james", poste: "Meneur", age: "23", height: "1,8", note: "Profil complété à partir des réponses déclarées au questionnaire.", img: "" }
+];
+
+    const PROFILS_JOUEURS = [
+      { slug: "epi", hand: "Les deux", preferredPosition: "Meneur (Point Guard)", primary: "Polyvalence", secondary: "Polyvalence", situation: "Dans le jeu collectif", distinction: "Les passes", weakness: "Condition physique", goal: "Mon handle", ratings: { technique: 2.58, physique: 2.57, lecture: 3.14, globale: 2.76 } },
+      { slug: "over", hand: "Les deux", preferredPosition: "Arrière (Shooting Guard)", primary: "Polyvalence", secondary: "Dribble et création", situation: "En un contre un", distinction: "Le bon sens", weakness: "Finition près du panier", goal: "Le dunk", ratings: { technique: 3.83, physique: 3.86, lecture: 4, globale: 3.9 } },
+      { slug: "commandant", hand: "Droite", preferredPosition: "Polyvalent : plusieurs postes", primary: "Finition près du panier", secondary: "Polyvalence", situation: "Dans les situations décisives", distinction: "Mon sens du collectif", weakness: "Discipline et concentration", goal: "Mon calme", ratings: { technique: 3.33, physique: 3.14, lecture: 3.57, globale: 3.35 } },
+      { slug: "la-g-chette", hand: "Droite", preferredPosition: "Meneur (Point Guard)", primary: "Dribble et création", secondary: "Tir à mi-distance", situation: "Dans le jeu collectif", distinction: "création de jeu , passes et heu collectif", weakness: "Tir à trois points", goal: "Tirs à trois points", ratings: { technique: 4.08, physique: 4.14, lecture: 4.14, globale: 4.12 } },
+      { slug: "jacky", hand: "Droite", preferredPosition: "Ailier fort (Power Forward)", primary: "Rebonds", secondary: "Finition près du panier", situation: "Au rebond", distinction: "Je sais pas trop", weakness: "Tir à trois points", goal: "Les dribbles, tir à 3 points, conditions physiques etc..", ratings: { technique: 3.42, physique: 2.86, lecture: 3.43, globale: 3.24 } },
+      { slug: "sammy", hand: "Les deux", preferredPosition: "Arrière (Shooting Guard)", primary: "Finition près du panier", secondary: "Dribble et création", situation: "En pénétration vers le panier", distinction: "J'abandonne pas", weakness: "Condition physique", goal: "Ma condition physique", ratings: { technique: null, physique: 3.57, lecture: 4.14, globale: 3.85 } },
+      { slug: "gary", hand: "Droite", preferredPosition: "Arrière (Shooting Guard)", primary: "Défense individuelle", secondary: "Tir à mi-distance", situation: "Dans les situations décisives", distinction: "DÉTERMINATION ET SANG FROID", weakness: "Dribble", goal: "DRIBLE", ratings: { technique: 2.33, physique: 3.43, lecture: 3.43, globale: 3.06 } },
+      { slug: "valea-viniry", hand: "Droite", preferredPosition: "Arrière (Shooting Guard)", primary: "Autre", secondary: "Défense individuelle", situation: "En défense", distinction: "Défense", weakness: "Tir à trois points", goal: "Défense", ratings: { technique: 3, physique: 2.86, lecture: 3.14, globale: 3 } },
+      { slug: "michel", hand: "Les deux", preferredPosition: "Arrière (Shooting Guard)", primary: "Défense individuelle", secondary: "Rebonds", situation: "En défense", distinction: "Le fait de dunker avec ma main, gauche alors que je suis droitier.", weakness: "Confiance en moi", goal: "Ma finition près du panier", ratings: { technique: 3.92, physique: 3.14, lecture: 4, globale: 3.69 } },
+      { slug: "hans", hand: "Droite", preferredPosition: "Arrière (Shooting Guard)", primary: "Polyvalence", secondary: "Dribble et création", situation: "Dans le jeu collectif", distinction: "", weakness: "Condition physique", goal: "Mon endurance", ratings: { technique: 1, physique: 2.14, lecture: 2.14, globale: 1.76 } },
+      { slug: "pepe", hand: "Les deux", preferredPosition: "Polyvalent : plusieurs postes", primary: "Vitesse et pénétration", secondary: "Finition près du panier", situation: "En pénétration vers le panier", distinction: "L’agressivité et l’intensité que je peux maintenir tout au long du match", weakness: "Tir à trois points", goal: "Les tirs 3 points et mi-distance", ratings: { technique: 3.08, physique: 4.29, lecture: 3.29, globale: 3.55 } },
+      { slug: "kyliane", hand: "Droite", preferredPosition: "Pivot (Center)", primary: "Finition près du panier", secondary: "Rebonds", situation: "En pénétration vers le panier", distinction: "Jsp", weakness: "Dribble", goal: "Le dribble", ratings: { technique: null, physique: 3.86, lecture: 3.57, globale: 3.71 } },
+      { slug: "lebron-james", hand: "Les deux", preferredPosition: "Meneur (Point Guard)", primary: "Tir à trois points", secondary: "Vitesse et pénétration", situation: "Sur les tirs extérieurs", distinction: "Ma vitesse d'exécution dans le jeu", weakness: "Autre", goal: "Mes dribles", ratings: { technique: null, physique: 3.86, lecture: 3.86, globale: 3.86 } },
+      { slug: "kombucha-ou-samuel", hand: "Droite", preferredPosition: "Meneur (Point Guard)", primary: "Polyvalence", secondary: "Défense individuelle", situation: "Dans le jeu collectif", distinction: "Ma concentration et ma combativité", weakness: "Rebond", goal: "Tir à mi-distance et tir à 3 points et communication avec mes coéquipiers", ratings: { technique: 3, physique: 3.57, lecture: 3.57, globale: 3.38 } }
     ];
 
     const POSTES_DATA = {
@@ -866,6 +936,67 @@
     };
 
     let filtreActif = "Tous";
+
+    function obtenirDetailsJoueur(j) {
+      return [
+        j.nickname && j.nickname.toLowerCase() !== j.nom.toLowerCase() ? `Surnom : ${j.nickname}` : "",
+        j.age ? `Âge : ${j.age}` : "",
+        j.height ? `Taille : ${j.height}` : ""
+      ].filter(Boolean);
+    }
+
+    function obtenirProfilJoueur(j) {
+      return PROFILS_JOUEURS.find(profil => profil.slug === j.profil);
+    }
+
+    function echapperHtml(value) {
+      return String(value).replace(/[&<>"']/g, character => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[character]);
+    }
+
+    function afficherProfilQuestionnaire(profil) {
+      if (!profil) return "";
+
+      const evaluations = [
+        ["Technique", profil.ratings.technique],
+        ["Physique", profil.ratings.physique],
+        ["Lecture du jeu", profil.ratings.lecture],
+        ["Moyenne globale", profil.ratings.globale]
+      ].filter(([, score]) => score !== null);
+
+      return `
+        <section class="player-profile-sheet mb-3" aria-label="Profil déclaré par le joueur">
+          <h6 class="text-white fw-bold mb-3">Profil déclaré</h6>
+          <div class="small text-muted d-flex flex-column gap-2">
+            <div><strong class="text-white">Poste préféré :</strong> ${echapperHtml(profil.preferredPosition)}</div>
+            <div><strong class="text-white">Spécialités :</strong> ${echapperHtml(profil.primary)} · ${echapperHtml(profil.secondary)}</div>
+            <div><strong class="text-white">Situation :</strong> ${echapperHtml(profil.situation)}</div>
+            ${profil.distinction ? `<div><strong class="text-white">Atout déclaré :</strong> ${echapperHtml(profil.distinction)}</div>` : ""}
+            <div><strong class="text-white">Main dominante :</strong> ${echapperHtml(profil.hand)}</div>
+            <div><strong class="text-white">Point à travailler :</strong> ${echapperHtml(profil.weakness)}</div>
+            <div><strong class="text-white">Objectif :</strong> ${echapperHtml(profil.goal)}</div>
+          </div>
+          <div class="border-top border-secondary border-opacity-25 mt-3 pt-3">
+            <div class="small text-muted mb-2">Autoévaluation déclarée · sur 5</div>
+            <div class="row g-2">
+              ${evaluations.map(([label, score]) => `
+                <div class="col-6">
+                  <div class="d-flex justify-content-between small text-white mb-1">
+                    <span>${label}</span><strong>${score.toFixed(2).replace(".", ",")}/5</strong>
+                  </div>
+                  <div class="profile-rating-bar"><span style="width:${Math.min(score * 20, 100)}%"></span></div>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+          <div class="small text-muted mt-2">Évaluations personnelles, non vérifiées indépendamment.</div>
+        </section>`;
+    }
 
     /* Génère un maillot SVG élégant pour les joueurs sans photo */
     function renderJerseySvg(num) {
@@ -888,9 +1019,13 @@
       }
 
       grid.innerHTML = liste.map(j => {
+        const profil = obtenirProfilJoueur(j);
         const photoHtml = j.img
-          ? `<img src="${j.img}" alt="${j.nom}" loading="lazy" onerror="handleImageError(this, ${j.n})">`
-          : `<div class="player-fallback">${renderJerseySvg(j.n)}</div>`;
+          ? `<img src="${j.img}" alt="${j.nom}" loading="lazy" onerror="handleImageError(this, ${j.n === null ? "null" : j.n})">`
+          : j.n !== null
+            ? `<div class="player-fallback">${renderJerseySvg(j.n)}</div>`
+            : `<div class="player-profile-placeholder"><span>${echapperHtml(j.nickname.slice(0, 1).toUpperCase())}</span><small>Profil joueur</small></div>`;
+        const detailsHtml = obtenirDetailsJoueur(j).join(" · ");
 
         return `
           <div class="col">
@@ -904,15 +1039,16 @@
                 <div>
                   <div class="d-flex justify-content-between align-items-center mb-1">
                     <span class="player-name">${j.nom}</span>
-                    <span class="player-number">#${j.n}</span>
+                    ${j.n !== null ? `<span class="player-number">#${j.n}</span>` : ""}
                   </div>
                   <div class="mb-2">
                     <span class="badge bg-secondary bg-opacity-50 text-white" style="font-size: 0.72rem;">${j.poste}</span>
                   </div>
-                  <p class="player-desc">${j.note}</p>
+                  ${detailsHtml ? `<p class="small text-muted mb-2">${detailsHtml}</p>` : ""}
+                  ${profil ? `<p class="player-desc">${profil.primary}</p>` : `<p class="player-desc">${j.note}</p>`}
                 </div>
 
-                <button type="button" class="btn btn-outline-light btn-sm rounded-pill w-100 mt-2 fw-semibold" onclick="ouvrirModalJoueur(${j.n})">
+                <button type="button" class="btn btn-outline-light btn-sm rounded-pill w-100 mt-2 fw-semibold" onclick="ouvrirModalJoueur('${j.n === null ? j.profil : `n-${j.n}`}')">
                   Fiche du joueur
                 </button>
               </div>
@@ -931,7 +1067,9 @@
           return;
         }
       }
-      imgEl.parentElement.innerHTML = `<div class="player-fallback">${renderJerseySvg(num)}</div>`;
+      imgEl.parentElement.innerHTML = num === null
+        ? `<div class="player-profile-placeholder"><span>?</span><small>Profil joueur</small></div>`
+        : `<div class="player-fallback">${renderJerseySvg(num)}</div>`;
     }
 
     /* Filtrage */
@@ -942,6 +1080,18 @@
         const matchPoste = (filtreActif === "Tous" || j.poste === filtreActif);
         const matchQuery = !query ||
           j.nom.toLowerCase().includes(query) ||
+          (j.nickname && j.nickname.toLowerCase().includes(query)) ||
+          (j.age && j.age.toLowerCase().includes(query)) ||
+          (j.height && j.height.toLowerCase().includes(query)) ||
+          (obtenirProfilJoueur(j) && [
+            obtenirProfilJoueur(j).preferredPosition,
+            obtenirProfilJoueur(j).primary,
+            obtenirProfilJoueur(j).secondary,
+            obtenirProfilJoueur(j).situation,
+            obtenirProfilJoueur(j).distinction,
+            obtenirProfilJoueur(j).weakness,
+            obtenirProfilJoueur(j).goal
+          ].some(value => value.toLowerCase().includes(query))) ||
           j.note.toLowerCase().includes(query) ||
           String(j.n).includes(query);
 
@@ -1011,15 +1161,19 @@
     function afficherGalerie() {
       const grid = document.getElementById("galleryGrid");
       const avecPhoto = JOUEURS.filter(j => j.img);
+      document.querySelectorAll('a[href="#galerie"].nav-btn-link').forEach(link => {
+        link.textContent = `Photos (${avecPhoto.length})`;
+      });
+      document.getElementById("galleryPhotoCount").textContent = avecPhoto.length;
 
       grid.innerHTML = avecPhoto.map(j => `
         <div class="col">
-          <div class="gallery-tile" onclick="ouvrirModalJoueur(${j.n})">
+          <div class="gallery-tile" onclick="ouvrirModalJoueur('${j.n === null ? j.profil : `n-${j.n}`}')">
             <div class="gallery-tile-img">
-              <img src="${j.img}" alt="${j.nom}" loading="lazy" onerror="handleImageError(this, ${j.n})">
+              <img src="${j.img}" alt="${j.nom}" loading="lazy" onerror="handleImageError(this, ${j.n === null ? "null" : j.n})">
             </div>
             <div class="p-2 px-3 d-flex justify-content-between align-items-center">
-              <span class="fw-bold text-white">#${j.n} ${j.nom}</span>
+              <span class="fw-bold text-white">${j.n !== null ? `#${j.n} ` : ""}${j.nom}</span>
               <small class="badge bg-secondary" style="font-size: 0.72rem;">${j.poste}</small>
             </div>
           </div>
@@ -1030,19 +1184,23 @@
     /* Modale Joueur */
     let playerModal = null;
     function ouvrirModalJoueur(num) {
-      const j = JOUEURS.find(item => item.n === num);
+      const j = JOUEURS.find(item => item.n === num || `n-${item.n}` === num || item.profil === num);
       if (!j) return;
 
-      document.getElementById("modalJerseyNum").textContent = `#${j.n}`;
+      document.getElementById("modalJerseyNum").textContent = j.n === null ? "Profil joueur" : `#${j.n}`;
       document.getElementById("modalName").textContent = j.nom;
       document.getElementById("modalPosBadge").textContent = j.poste;
+      document.getElementById("modalPlayerDetails").textContent = obtenirDetailsJoueur(j).join(" · ");
       document.getElementById("modalBio").textContent = j.note;
+      document.getElementById("modalSurveyProfile").innerHTML = afficherProfilQuestionnaire(obtenirProfilJoueur(j));
 
       const photoBox = document.getElementById("modalPhotoBox");
       if (j.img) {
-        photoBox.innerHTML = `<img src="${j.img}" alt="${j.nom}" style="width:100%; height:100%; object-fit:cover;">`;
-      } else {
+        photoBox.innerHTML = `<img src="${j.img}" alt="${j.nom}" style="width:100%; height:100%; object-fit:cover;" onerror="handleImageError(this, ${j.n === null ? "null" : j.n})">`;
+      } else if (j.n !== null) {
         photoBox.innerHTML = `<div class="player-fallback py-4">${renderJerseySvg(j.n)}</div>`;
+      } else {
+        photoBox.innerHTML = `<div class="player-profile-placeholder"><span>${echapperHtml(j.nickname.slice(0, 1).toUpperCase())}</span><small>Profil joueur</small></div>`;
       }
 
       if (!playerModal) {
