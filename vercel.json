@@ -16,16 +16,12 @@
   ],
   "rewrites": [
     {
-      "source": "/Bitume%20225",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/Bitume%20225.html",
-      "destination": "/index.html"
+      "source": "/",
+      "destination": "/Bitume%20225.html"
     },
     {
       "source": "/bitume-225",
-      "destination": "/index.html"
+      "destination": "/Bitume%20225.html"
     }
   ]
 }
