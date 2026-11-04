@@ -882,27 +882,22 @@
   <script>
     /* Effectif affiché sur le site. Les profils sans numéro restent sans numéro. */
     const JOUEURS = [
-  { n: 7,  nom: "Olympe Bathié", nickname: "olympe", poste: "Meneur", age: "", height: "", note: "Bonne vision de jeu, tireur régulier à 3 points et passes rapides.", img: "images/Bathie.jpeg" },
+  
   { n: 23, profil: "kombucha-ou-samuel", nom: "Koussa Samuel", nickname: "Kombucha ou Samuel", poste: "Meneur", age: "25ans", height: "175cm", note: "Polyvalence, défense individuelle et concentration dans le jeu collectif.", img: "images/Samuel.jpeg" },
   { n: 11, profil: "la-g-chette", nom: "Alexking Koffi", nickname: "La gâchette", poste: "Meneur", age: "20", height: "190cm", note: "Vitesse d'exécution, organise le jeu et distribue le ballon.", img: "images/Alex.jpeg" },
   { n: 9,  profil: "commandant", nom: "Emmanuel", nickname: "Commandant", poste: "Meneur", age: "18 ans", height: "1m93", note: "Meilleur passeur all-time de l'équipe, distribue avec précision.", img: "" },
-  { n: 14, nom: "Isaac", nickname: "Isaac", poste: "Arrière", age: "", height: "", note: "Pénètre et finit au cercle avec aisance, très bon tireur.", img: "images/Isaac.jpeg" },
   { n: 8,  nom: "Djoman", nickname: "Djoman", poste: "Arrière", age: "21", height: "1m85", note: "Monsieur le nonchalant, calme, bonne finition et tir fiable.", img: "images/Djoman.jpeg" },
-  
   { n: 10, nom: "Nekpehi Djédjé Gbamnan Prince Jean Epiphane", nickname: "Epiphane", poste: "Arrière", age: "21", height: "1m78", note: "Tireur régulier, persévérant, bon placement en attaque.", img: "images/Epiphane.jpeg" },
   { n: 34,  profil: "over", nom: "Chrys Fabrice", nickname: "Over", poste: "Ailier fort", age: "23", height: "1m89", note: "Outsider, joueur complet, relance rapide et percussion.", img: "images/Chrys.jpeg" },
-  { n: 5,  profil: "Bradley", nom: "Bradley", nickname: "", poste: "", age: "", height: "", note: "Joueur polyvalent, grosse énergie au cercle et bon tireur.", img: "images/Bradley.jpeg" },
-  { n: 24, nom: "Ablo", nickname: "Brandon Harthley", poste: "Ailier", age: "", height: "", note: "Puissant dans les pénétrations vers le panier, gros impact physique.", img: "images/Ablo.jpeg" },
   { n: 32, profil: "jacky", nom: "Jacquis-Arnold", nickname: "JACKY", poste: "Ailier", age: "24", height: "1m85", note: "Travaille dans la raquette, pose des écrans solides pour libérer le jeu.", img: "images/Jacky.jpeg" },
   { n: 50, profil: "pepe", nom: "Touré junior", nickname: "Pépé", poste: "Ailier fort", age: "21 ans", height: "1m85", note: "Polyvalent, finition au cercle et solide présence défensive.", img: "images/pepe.jpeg" },
-  { n: 3,  nom: "Kuyo", nickname: "Kuyo", poste: "Meneur", age: "", height: "", note: "Bonne défense sur le porteur de balle et présence aux rebonds.", img: "images/Kuyo.jpeg" },
+
   // Joueurs sans photo (générés avec maillot SVG)
-  { n: 4,  nom: "Moussa", nickname: "Moussa", poste: "Ailier fort", age: "", height: "", note: "Énergie sur le terrain, travail au rebond et tir à mi-distance.", img: "" },
-  { n: 21, nom: "Ariel", nickname: "Ariel", poste: "Meneur", age: "", height: "", note: "Bon shooteur en bout de terrain, calme dans les moments importants.", img: "" },
-  { n: 17, nom: "Caliss", nickname: "Caliss", poste: "Meneur", age: "", height: "", note: "Bonne défense tout terrain, organise la relance.", img: "" },
-  { n: 44, nom: "Kyky de Bondy", nickname: "Kyky", poste: "Pivot", age: "", height: "", note: "Joue dos au panier et protège la raquette sous le cercle.", img: "" },
+  
+  { n: 21, nom: "Ariel", nickname: "Ariel", poste: "Meneur", age: "22ans", height: "1m82", note: "Bon défenseur en bout de terrain, calme dans les moments importants.", img: "" },
+  { n: 17, nom: "Rudy", nickname: "papy Drew", poste: "Meneur", age: "23 ans", height: "1m68", note: "Expérience et leadership sur le terrain.", img: "" },
   { n: 12, profil: "kyliane", nom: "GBAYORO kyliane", nickname: "Kyliane", poste: "Pivot", age: "18 ans", height: "2m1", note: "Le plus grand de l'équipe, contre tout ce qui passe dans la raquette.", img: "" },
-   { n:10, profil: "sammy", nom: "Kla hira sammy", nickname: "Sammy", poste: "Arrière", age: "17 ans", height: "1m87", note: "Profil complété à partir des réponses déclarées au questionnaire.", img: "images/Hira.jpeg" },
+  { n:10, profil: "sammy", nom: "Kla hira sammy", nickname: "Sammy", poste: "Arrière", age: "17 ans", height: "1m87", note: "Profil complété à partir des réponses déclarées au questionnaire.", img: "images/Hira.jpeg" },
   { n:9, profil: "gary", nom: "AMBOF", nickname: "GARY", poste: "Arrière", age: "17 ans", height: "1m76", note: "Profil complété à partir des réponses déclarées au questionnaire.", img: "" },
   { n:0, profil: "valea-viniry", nom: "Valea viniry", nickname: "Valea viniry", poste: "Arrière", age: "23", height: "184cm", note: "Profil complété à partir des réponses déclarées au questionnaire.", img: "" },
   { n:6,  profil: "michel", nom: "Loba Michel", nickname: "Michel", poste: "Arrière", age: "19", height: "1m89", note: "Profil complété à partir des réponses déclarées au questionnaire.", img: "images/Michel loba.jpeg" },
@@ -911,11 +906,12 @@
 ];
 
     const PROFILS_JOUEURS = [
-      { slug: "epi", hand: "Les deux", preferredPosition: "Meneur (Point Guard)", primary: "Polyvalence", secondary: "Polyvalence", situation: "Dans le jeu collectif", distinction: "Les passes", weakness: "Condition physique", goal: "Mon handle", ratings: { technique: 2.58, physique: 2.57, lecture: 3.14, globale: 2.76 } },
+      { slug: "Epiphane", hand: "Les deux", preferredPosition: "Meneur (Point Guard)", primary: "Polyvalence", secondary: "Polyvalence", situation: "Dans le jeu collectif", distinction: "Les passes", weakness: "Condition physique", goal: "Mon handle", ratings: { technique: 2.58, physique: 2.57, lecture: 3.14, globale: 2.76 } },
       { slug: "over", hand: "Les deux", preferredPosition: "Arrière (Shooting Guard)", primary: "Polyvalence", secondary: "Dribble et création", situation: "En un contre un", distinction: "Le bon sens", weakness: "Finition près du panier", goal: "Le dunk", ratings: { technique: 3.83, physique: 3.86, lecture: 4, globale: 3.9 } },
       { slug: "commandant", hand: "Droite", preferredPosition: "Polyvalent : plusieurs postes", primary: "Finition près du panier", secondary: "Polyvalence", situation: "Dans les situations décisives", distinction: "Mon sens du collectif", weakness: "Discipline et concentration", goal: "Mon calme", ratings: { technique: 3.33, physique: 3.14, lecture: 3.57, globale: 3.35 } },
       { slug: "la-g-chette", hand: "Droite", preferredPosition: "Meneur (Point Guard)", primary: "Dribble et création", secondary: "Tir à mi-distance", situation: "Dans le jeu collectif", distinction: "création de jeu , passes et heu collectif", weakness: "Tir à trois points", goal: "Tirs à trois points", ratings: { technique: 4.08, physique: 4.14, lecture: 4.14, globale: 4.12 } },
       { slug: "jacky", hand: "Droite", preferredPosition: "Ailier fort (Power Forward)", primary: "Rebonds", secondary: "Finition près du panier", situation: "Au rebond", distinction: "Je sais pas trop", weakness: "Tir à trois points", goal: "Les dribbles, tir à 3 points, conditions physiques etc..", ratings: { technique: 3.42, physique: 2.86, lecture: 3.43, globale: 3.24 } },
+      { slug: "Ariel", hand: "Droite", preferredPosition: "Meneur (Point Guard)", primary: "tir à trois points", secondary: "Dribble et création", situation: "Dans le jeu collectif", distinction: "Je sais pas trop", weakness: "Tir à trois points", goal: "Les dribbles, tir à 3 points, conditions physiques etc..", ratings: { technique: 3.42, physique: 2.86, lecture: 3.43, globale: 3.24 } },
       { slug: "sammy", hand: "Les deux", preferredPosition: "Arrière (Shooting Guard)", primary: "Finition près du panier", secondary: "Dribble et création", situation: "En pénétration vers le panier", distinction: "J'abandonne pas", weakness: "Condition physique", goal: "Ma condition physique", ratings: { technique: null, physique: 3.57, lecture: 4.14, globale: 3.85 } },
       { slug: "gary", hand: "Droite", preferredPosition: "Arrière (Shooting Guard)", primary: "Défense individuelle", secondary: "Tir à mi-distance", situation: "Dans les situations décisives", distinction: "DÉTERMINATION ET SANG FROID", weakness: "Dribble", goal: "DRIBLE", ratings: { technique: 2.33, physique: 3.43, lecture: 3.43, globale: 3.06 } },
       { slug: "valea-viniry", hand: "Droite", preferredPosition: "Arrière (Shooting Guard)", primary: "Autre", secondary: "Défense individuelle", situation: "En défense", distinction: "Défense", weakness: "Tir à trois points", goal: "Défense", ratings: { technique: 3, physique: 2.86, lecture: 3.14, globale: 3 } },
@@ -923,7 +919,8 @@
       { slug: "hans", hand: "Droite", preferredPosition: "Arrière (Shooting Guard)", primary: "Polyvalence", secondary: "Dribble et création", situation: "Dans le jeu collectif", distinction: "", weakness: "Condition physique", goal: "Mon endurance", ratings: { technique: 1, physique: 2.14, lecture: 2.14, globale: 1.76 } },
       { slug: "pepe", hand: "Les deux", preferredPosition: "Polyvalent : plusieurs postes", primary: "Vitesse et pénétration", secondary: "Finition près du panier", situation: "En pénétration vers le panier", distinction: "L’agressivité et l’intensité que je peux maintenir tout au long du match", weakness: "Tir à trois points", goal: "Les tirs 3 points et mi-distance", ratings: { technique: 3.08, physique: 4.29, lecture: 3.29, globale: 3.55 } },
       { slug: "kyliane", hand: "Droite", preferredPosition: "Pivot (Center)", primary: "Finition près du panier", secondary: "Rebonds", situation: "En pénétration vers le panier", distinction: "Jsp", weakness: "Dribble", goal: "Le dribble", ratings: { technique: null, physique: 3.86, lecture: 3.57, globale: 3.71 } },
-      { slug: "lebron-james", hand: "Les deux", preferredPosition: "Meneur (Point Guard)", primary: "Tir à trois points", secondary: "Vitesse et pénétration", situation: "Sur les tirs extérieurs", distinction: "Ma vitesse d'exécution dans le jeu", weakness: "Autre", goal: "Mes dribles", ratings: { technique: null, physique: 3.86, lecture: 3.86, globale: 3.86 } },
+      { slug: "lebron-james", hand: "Les deux", preferredPosition: "Arrière (Shooting Guard)", primary: "Tir à mi-distance", secondary: "Dribble et création", situation: "Sur les tirs extérieurs", distinction: "Capacité à me faire oublié sur le terrain", weakness: "Autre", goal: "Mes dribles", ratings: { technique: 3, physique: 2.86, lecture: 2.71, globale: 2.86 } },
+      
       { slug: "kombucha-ou-samuel", hand: "Droite", preferredPosition: "Meneur (Point Guard)", primary: "Polyvalence", secondary: "Défense individuelle", situation: "Dans le jeu collectif", distinction: "Ma concentration et ma combativité", weakness: "Rebond", goal: "Tir à mi-distance et tir à 3 points et communication avec mes coéquipiers", ratings: { technique: 3, physique: 3.57, lecture: 3.57, globale: 3.38 } }
     ];
 
