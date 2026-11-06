@@ -13,11 +13,6 @@
         }
       ]
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/bitume-225",
-      "destination": "/Bitume%20225.html"
-    }
   ]
+
 }
